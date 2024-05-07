@@ -16,16 +16,16 @@
     <main class="min-h-screen bg-[#010313] bg-[url(images/background.png)] bg-center bg-no-repeat font-poppins justify-center items-center">
 
         <!-- Home Section -->
-        <section class="home min-h-screen justify-center flex flex-col items-center text-white hidden">
+        <section id="home-screen" class="home min-h-screen justify-center flex flex-col items-center text-white">
             <div class="flex flex-col items-center gap-10">
                 <h1 class=" text-white font-anton text-[150px]">Alphabet Clash</h1>
                 <p>Unleash Your Keyboard Kung Fu : Press “Enter” to Play</p>
-                <button class="btn bg-white text-black">Play Now</button>
+                <button class="btn bg-white text-black" id="play-now-btn" onclick="playNow()">Play Now</button>
             </div>
         </section>
         
         <!-- playground section -->
-        <section class="flex flex-col justify-center items-center gap-20 hidden">
+        <section id="play-ground" class="flex flex-col justify-center items-center gap-20 hidden">
 
             <!-- Artboard Section -->
             <div class="artboard border-[20px] rounded-2xl border-[#010313CC] bg-[#FFFFFFB3] w-[1080px]">
@@ -107,6 +107,7 @@
         </section>
     </main>
 
-    <script src="scripts/script.js"></script>
+    <script src="scripts/alpha-clash.js"></script>
+    <script src="scripts/utility.js"></script>
 </body>
 </html>
