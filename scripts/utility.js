@@ -33,32 +33,54 @@ function getRandomAlphabet(){
 
 // update-score
 function updateScore(){
-    const currentScoreElement = document.getElementById('score-field');
-    const scoreText = currentScoreElement.innerText
-    const currentScore = parseInt(scoreText);
-    
-    const scoreUpdate = currentScore + 1;
-    console.log(scoreUpdate)
-    currentScoreElement.innerText = scoreUpdate;
-    document.getElementById('final-score').innerText = scoreUpdate;
+        const currentScore = getTextElementValueById('score-field');
+        const updatedScore = currentScore + 1;
+        setValueById('score-field', updatedScore);
+        setValueById('final-score', updatedScore)
+        console.log(currentScore);
 }
 
-// update life
-function lifeUpdate(){
-    const lifeField = document.getElementById('life-field');
-    const lifeFieldText = lifeField.innerText;
-    const life = parseInt(lifeFieldText);
+function updateLife(){
+    const currentLife = getTextElementValueById('life-field');
+    const updatedLife = currentLife -1;
+    setValueById('life-field', updatedLife);
 
-    const lifeScore = life-1;
-
-    lifeField.innerText = lifeScore;
-
-    if(lifeScore<1){
-        hideElementById('play-ground');
-        showElementById('end-screen');
+    if(updatedLife < 1){
+        gameOver();
     }
 }
 
-// function endGame(){
-    
+
+
+function getTextElementValueById(elementId){
+    const elementTextField = document.getElementById(elementId);
+    const elementText = elementTextField.innerText;
+    const elementValue = parseInt(elementText);
+    return elementValue;
+}
+
+function setValueById(elementId, points){
+    const elementTextField = document.getElementById(elementId);
+    elementTextField.innerText = points;
+}
+
+function getElementTextById(elementId){
+    const element = document.getElementById(elementId);
+    const text = element.innerText;
+    // console.log(currentAlphabet)
+    return text;
+}
+
+function gameOver(){
+    hideElementById('play-ground');
+    showElementById('end-screen');
+    const currentAlphabet = getElementTextById('current-alphabet');
+    console.log(currentAlphabet);
+    removeBgColor(currentAlphabet);
+}
+
+// function resetColor(){
+//     const currentAlphabet = getElementTextById('current-alphabet');
+//     console.log(currentAlphabet);
+//     removeBgColor('current-alphabet');
 // }
